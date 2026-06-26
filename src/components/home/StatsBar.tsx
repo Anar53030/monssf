@@ -18,7 +18,7 @@ export default function StatsBar() {
     },
   });
 
-  const posts = data?.cpPostList?.posts || [];
+  const posts: any[] = data?.cpPostList?.posts || [];
   
   return (
     <section className="container">

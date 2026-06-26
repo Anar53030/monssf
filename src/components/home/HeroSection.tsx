@@ -23,7 +23,7 @@ export default function HeroSection() {
   },
 });
 
-const posts = data?.cpPostList?.posts || [];
+const posts: any[] = data?.cpPostList?.posts || [];
 
   const t = useTranslations("Home");
   const params = useParams();
