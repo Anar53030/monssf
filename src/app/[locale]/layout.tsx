@@ -20,7 +20,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 export const metadata: Metadata = {
-  title: "mongolia",
+  title: "Монголын Оюутны Спортын Холбоо",
   description:
     "Хамтрагч байгууллагууд. Sport. Холбоо барих. Холбогдох дугаар: 311947; Факс: 324050; monssf@mongolnet.mn. Хаяг. Спортын төв ордон, 304 тоот өрөө, Бага тойруу - ...",
   icons: {
