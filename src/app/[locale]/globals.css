@@ -242,7 +242,13 @@
 }
 
 .post-content a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+/* No underlines in post content — overrides CMS <u> tags / inline styles. */
+.post-content,
+.post-content * {
+  text-decoration: none !important;
 }
 
 .post-content img {

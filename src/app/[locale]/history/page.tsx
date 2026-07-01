@@ -5,6 +5,7 @@ import SmartContentRenderer from "@/components/content/SmartContentRenderer";
 import { useQuery } from "@apollo/client";
 import { useTranslations } from "next-intl";
 import queries from "@/graphql/cms/queries";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page() {
   const t = useTranslations("Header");
@@ -12,7 +13,7 @@ export default function Page() {
   // CMS data logic — unchanged
   const { data } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["XyZNF352VpvykBxJIte7H"],
+      categoryIds: [CATEGORY.HISTORY],
     },
   });
 

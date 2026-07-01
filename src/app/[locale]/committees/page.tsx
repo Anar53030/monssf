@@ -5,13 +5,14 @@ import queries from "@/graphql/cms/queries";
 import SmartContentRenderer from "@/components/content/SmartContentRenderer";
 import MocxCategories from "@/components/categoriesList/mocxCategories";
 import { useTranslations } from "next-intl";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page() {
   const t = useTranslations("Header");
 
   const { data, loading, error } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["87CCZ3TmzyppXzOLs8naz"],
+      categoryIds: [CATEGORY.COMMITTEES],
       limit: 30,
       cursor: "",
       sortField: "createdAt",

@@ -939,6 +939,16 @@ h6 {
   gap: var(--space-6);
 }
 
+/* Card wrappers are anchors — kill the underline/blue so the card title
+   and text render clean. The `.content-area` prefix is needed to beat the
+   `.content-area a` prose-link rule that underlines anchors on the
+   all-news page (cards live inside .content-area via PageShell). */
+.grid-3 > a,
+.content-area .grid-3 > a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1344,7 +1354,14 @@ h6 {
 
 .content-area a {
   color: var(--color-accent);
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+/* No underlines anywhere in page/post content — overrides CMS <u> tags
+   and inline text-decoration on posts (per site owner request). */
+.content-area,
+.content-area * {
+  text-decoration: none !important;
 }
 
 .content-area table {

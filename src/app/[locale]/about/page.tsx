@@ -7,10 +7,11 @@ import { useParams } from "next/navigation";
 import queries from "@/graphql/cms/queries";
 import StatsBar from "@/components/home/StatsBar";
 import SportEvent from "@/components/content/SportEvent";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 // CMS category IDs — replace with actual IDs in Erxes
-const TIMELINE_CATEGORY_ID = "REPLACE_WITH_TIMELINE_CATEGORY_ID";
-const STRUCTURE_CATEGORY_ID = "lAyZZuEgEdqdt9z5JTHOA";
+const TIMELINE_CATEGORY_ID = CATEGORY.HISTORY;
+const STRUCTURE_CATEGORY_ID = CATEGORY.ABOUT_STRUCTURE;
 
 const FILE_BASE = "https://monssfmn.next.erxes.io/gateway/read-file?key=";
 

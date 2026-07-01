@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/client";
 import { cmsPostList } from "@/graphql/cms/queries";
 import Image from "next/image";
 import PageShell from "@/components/PageShell";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 /* 🔥 excerpt доторх YouTube URL олно */
 function extractYoutubeUrl(text: string) {
@@ -30,7 +31,7 @@ function getYoutubeId(url: string) {
 export default function Page() {
   const { data } = useQuery(cmsPostList, {
     variables: {
-      categoryIds: ["0w77szMTBiUVCMO-BFt5r"],
+      categoryIds: [CATEGORY.VIDEOS],
     },
   });
 

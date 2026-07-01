@@ -5,11 +5,12 @@ import { useQuery } from "@apollo/client";
 import queries from "@/graphql/cms/queries";
 import SmartContentRenderer from "@/components/content/SmartContentRenderer";
 import Image from "next/image";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page() {
   const { data } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["kU8Hty9eeO1FRVCxh5a9k"],
+      categoryIds: [CATEGORY.NATIONAL_GAMES],
     },
   });
 

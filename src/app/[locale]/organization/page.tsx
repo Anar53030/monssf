@@ -6,13 +6,14 @@ import { useQuery } from "@apollo/client";
 import queries from "@/graphql/cms/queries";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page() {
   const t = useTranslations("Header");
 
   const { data } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["lAyZZuEgEdqdt9z5JTHOA"],
+      categoryIds: [CATEGORY.ABOUT_STRUCTURE],
     },
   });
 

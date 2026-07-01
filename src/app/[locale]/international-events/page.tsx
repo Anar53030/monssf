@@ -4,11 +4,12 @@ import { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import queries from "@/graphql/cms/queries";
 import SmartContentRenderer from "@/components/content/SmartContentRenderer";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page() {
   const { data, loading } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["Ir2gt373mPEZDkZJ-GByJ"],
+      categoryIds: [CATEGORY.UNIVERSIADE_WUC_AUC],
     },
   });
 

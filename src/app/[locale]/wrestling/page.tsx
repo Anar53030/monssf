@@ -4,16 +4,17 @@ import { queries } from "@/graphql/cms";
 import { useQuery } from "@apollo/client";
 import SmartContentRenderer from "@/components/content/SmartContentRenderer";
 import PageShell from "@/components/PageShell";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page({ params }: { params: { locale: string } }) {
   const { data } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["OuFAmPVJfMTyp3rh0iOYd"],
+      categoryIds: [CATEGORY.WRESTLING],
     },
   });
 
   const posts = data?.cpPostList?.posts?.filter((post: any) =>
-    post?.categoryIds.includes("OuFAmPVJfMTyp3rh0iOYd"),
+    post?.categoryIds.includes(CATEGORY.WRESTLING),
   );
 
   return (

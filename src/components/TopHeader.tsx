@@ -5,9 +5,10 @@ import { useQuery } from "@apollo/client";
 import { useTranslations } from "next-intl";
 import queries from "@/graphql/cms/queries";
 import React from "react";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 // Reuses the same news category as NewWrapper for the ticker headlines
-const NEWS_CATEGORY_ID = "Y2gBhDY0k7qZIQowqginN";
+const NEWS_CATEGORY_ID = CATEGORY.NEWS_ROOT;
 
 export default function TopHeader() {
   const t = useTranslations("Header");

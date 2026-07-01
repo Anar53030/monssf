@@ -161,9 +161,25 @@ export const cmsPostDetails = gql`
   }
 `;
 
+export const cmsCategoryList = gql`
+  query CpCategories($clientPortalId: String) {
+    cpCategories(clientPortalId: $clientPortalId) {
+      totalCount
+      list {
+        _id
+        name
+        slug
+        parentId
+        status
+      }
+    }
+  }
+`;
+
 const queries = {
   cmsPostList,
   cmsPostDetails,
+  cmsCategoryList,
 };
 
 export default queries;

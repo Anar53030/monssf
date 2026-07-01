@@ -5,13 +5,14 @@ import { useQuery } from "@apollo/client";
 import queries from "@/graphql/cms/queries";
 import SmartContentRenderer from "@/components/content/SmartContentRenderer";
 import { useTranslations } from "next-intl";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page() {
   const t = useTranslations("Header");
 
   const { data } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["s37_GUOA5JZDXknl1u88n"],
+      categoryIds: [CATEGORY.TODAY],
     },
   });
 

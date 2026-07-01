@@ -5,11 +5,12 @@ import queries from "@/graphql/cms/queries";
 import SmartContentRenderer from "@/components/content/SmartContentRenderer";
 import Image from "next/image";
 import PageShell from "@/components/PageShell";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page() {
   const { data } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["iuiOHH8Vk8dUx0K9GcWtq"],
+      categoryIds: [CATEGORY.WUC_2014_RESULTS],
     },
   });
 

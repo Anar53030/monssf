@@ -5,13 +5,14 @@ import MocxCategories from "@/components/categoriesList/mocxCategories";
 import { cmsPostList } from "@/graphql/cms/queries";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page() {
   const t = useTranslations("Header");
 
   const { data, loading, error } = useQuery(cmsPostList, {
     variables: {
-      categoryIds: ["GqNabNaNW7lmdesOABVmA"],
+      categoryIds: [CATEGORY.EXECUTIVE_COUNCIL],
     },
   });
 

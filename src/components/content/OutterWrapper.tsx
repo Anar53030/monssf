@@ -4,9 +4,10 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { useTranslations } from "next-intl";
 import queries from "@/graphql/cms/queries";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 // Erxes CMS category ID for video posts — update here if category changes
-const VIDEO_CATEGORY_ID = "dqNv-FmhDK415HMvH1Ot5";
+const VIDEO_CATEGORY_ID = CATEGORY.HOME_VIDEOS;
 
 /**
  * OutterWrapper — "Competition Highlights" video section.

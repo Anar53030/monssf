@@ -4,11 +4,12 @@ import { useQuery } from "@apollo/client";
 import queries from "@/graphql/cms/queries";
 import ArgaHemjeeCat from "@/components/categoriesList/argaHemjeeCat";
 import SmartContentRenderer from "@/components/content/SmartContentRenderer";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page() {
   const { data } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["P2zIZ9rYXLrsdWtxwQw3a"],
+      categoryIds: [CATEGORY.SPORT_TYPES],
     },
   });
 

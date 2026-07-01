@@ -3,6 +3,7 @@
 import React from "react";
 import { queries } from "@/graphql/cms";
 import { useQuery } from "@apollo/client";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 /**
  * StatsBar
@@ -14,7 +15,7 @@ export default function StatsBar() {
 
   const { data } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["traMDrN7HLpo5aTDXFOnd"],
+      categoryIds: [CATEGORY.STATS],
     },
   });
 

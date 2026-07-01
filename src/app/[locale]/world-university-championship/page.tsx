@@ -3,6 +3,7 @@
 import { useQuery } from "@apollo/client";
 import queries from "@/graphql/cms/queries";
 import PageShell from "@/components/PageShell";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 function getEmbedUrl(url: string) {
   if (!url) return "";
@@ -16,7 +17,7 @@ function getEmbedUrl(url: string) {
 export default function Page() {
   const { data } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["SLBij1DyWKPxmeXoB8vSN"],
+      categoryIds: [CATEGORY.WORLD_UNIVERSITY_CHAMPIONSHIP],
     },
   });
 

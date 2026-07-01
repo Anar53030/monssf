@@ -5,11 +5,12 @@ import queries from "@/graphql/cms/queries";
 import SmartContentRenderer from "@/components/content/SmartContentRenderer";
 import Image from "next/image";
 import PageShell from "@/components/PageShell";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page() {
   const { data } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["PklZgGcQpN27_oXv22lrZ"],
+      categoryIds: [CATEGORY.UNIVERSIADE_2013_RESULTS],
     },
   });
 

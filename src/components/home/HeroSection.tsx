@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { queries } from "@/graphql/cms";
 import { useQuery } from "@apollo/client";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 const FILE_BASE = "https://monssfmn.next.erxes.io/gateway/read-file?key=";
 
@@ -19,7 +20,7 @@ const FILE_BASE = "https://monssfmn.next.erxes.io/gateway/read-file?key=";
 export default function HeroSection() {
   const { data, loading, error } = useQuery(queries.cmsPostList, {
   variables: {
-    categoryIds: [ "k_s8mapD2i1vzyw34RIq6"],
+    categoryIds: [ CATEGORY.HOME_TITLE],
   },
 });
 

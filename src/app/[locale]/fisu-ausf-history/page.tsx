@@ -4,11 +4,12 @@ import SmartContentRenderer from "@/components/content/SmartContentRenderer";
 import { useQuery } from "@apollo/client";
 import queries from "@/graphql/cms/queries";
 import PageShell from "@/components/PageShell";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page() {
   const { data } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["gtslawYu3wI9Op9DtDP83"],
+      categoryIds: [CATEGORY.FISU_AUSF_HISTORY],
     },
   });
 

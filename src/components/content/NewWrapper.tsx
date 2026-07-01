@@ -6,9 +6,10 @@ import { useQuery } from "@apollo/client";
 import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import queries from "@/graphql/cms/queries";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 // Erxes CMS category ID for news posts — update here if category changes
-const NEWS_CATEGORY_ID = "Y2gBhDY0k7qZIQowqginN";
+const NEWS_CATEGORY_ID = CATEGORY.NEWS_ROOT;
 
 // Erxes file serving base URL
 const FILE_BASE = "https://monssfmn.next.erxes.io/gateway/read-file?key=";

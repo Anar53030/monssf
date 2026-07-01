@@ -7,9 +7,15 @@ import { useParams, usePathname } from "next/navigation";
 import { useQuery } from "@apollo/client";
 import { Search, User, Menu, X, ChevronDown } from "lucide-react";
 import queries from "@/graphql/cms/queries";
+import {
+  CATEGORY,
+  routeForCategory,
+  KNOWN_CATEGORY_IDS,
+  CLIENT_PORTAL_ID,
+} from "@/graphql/cms/categories";
 
 // Erxes CMS category ID for the headline ticker — keep in sync with the news category
-const NEWS_CATEGORY_ID = "Y2gBhDY0k7qZIQowqginN";
+const NEWS_CATEGORY_ID = CATEGORY.NEWS_ROOT;
 
 /**
  * SiteHeader
@@ -53,7 +59,9 @@ export default function SiteHeader() {
   };
   type NavEntry = { label: string; href: string; children?: NavLink[] };
 
-  const nav: NavEntry[] = [
+  // The curated, hardcoded navbar (unchanged). Brand-new CMS categories
+  // are appended to it below.
+  const baseNav: NavEntry[] = [
     {
       label: t("MOSFF"),
       href: lk("history"),
@@ -169,6 +177,23 @@ export default function SiteHeader() {
       href: lk("contact"),
     },
   ];
+
+  // ── Append brand-new CMS categories ────────────────────────────
+  // The curated navbar above is kept as-is. Any category created in the
+  // CMS that this codebase doesn't already know about is added as its own
+  // button (sorted by name), linking to the generic /category/[id] page —
+  // so a new category shows up without a code change, and nothing else
+  // in the navbar changes.
+  const { data: catData } = useQuery(queries.cmsCategoryList, {
+    variables: { clientPortalId: CLIENT_PORTAL_ID },
+  });
+  const newCategories: NavEntry[] = (catData?.cpCategories?.list ?? [])
+    .filter((c: any) => c && !KNOWN_CATEGORY_IDS.has(c._id))
+    .slice()
+    .sort((a: any, b: any) => (a.name || "").localeCompare(b.name || ""))
+    .map((c: any) => ({ label: c.name, href: lk(routeForCategory(c._id)) }));
+
+  const nav: NavEntry[] = [...baseNav, ...newCategories];
 
   // ── Headline ticker (CMS, unchanged data logic) ────────────────
   const { data } = useQuery(queries.cmsPostList, {

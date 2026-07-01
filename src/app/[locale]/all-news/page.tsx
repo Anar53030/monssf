@@ -7,9 +7,10 @@ import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import queries from "@/graphql/cms/queries";
 import PageShell from "@/components/PageShell";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 // Erxes CMS category ID for news posts — keep in sync with NewWrapper
-const NEWS_CATEGORY_ID = "Y2gBhDY0k7qZIQowqginN";
+const NEWS_CATEGORY_ID = CATEGORY.NEWS_ROOT;
 const FILE_BASE = "https://monssfmn.next.erxes.io/gateway/read-file?key=";
 
 /**

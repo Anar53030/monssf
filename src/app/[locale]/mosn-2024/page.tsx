@@ -4,11 +4,12 @@ import { useQuery } from "@apollo/client";
 import queries from "@/graphql/cms/queries";
 import SmartContentRenderer from "@/components/content/SmartContentRenderer";
 import PageShell from "@/components/PageShell";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page() {
   const { data, loading } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["btUgLXKrvbqvkoPBv35ll"],
+      categoryIds: [CATEGORY.MOSN_2024],
       sortField: "createdAt",
       sortDirection: "asc",
     },

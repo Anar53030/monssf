@@ -4,11 +4,12 @@ import { useQuery } from "@apollo/client";
 import queries from "@/graphql/cms/queries";
 import SmartContentRenderer from "@/components/content/SmartContentRenderer";
 import Image from "next/image";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page() {
   const { data } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["Rj34KOEOHv13OntajdKmx"],
+      categoryIds: [CATEGORY.SCHEDULE],
     },
   });
 

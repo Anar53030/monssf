@@ -4,9 +4,10 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { useTranslations } from "next-intl";
 import queries from "@/graphql/cms/queries";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 // Erxes CMS category ID for federation activity posts — update here if category changes
-const ACTIVITY_CATEGORY_ID = "v_591LkOAsDBnqqaPi1sJ";
+const ACTIVITY_CATEGORY_ID = CATEGORY.HOME_EVENTS;
 
 
 /**

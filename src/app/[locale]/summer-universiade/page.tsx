@@ -3,6 +3,7 @@
 import { useQuery } from "@apollo/client";
 import queries from "@/graphql/cms/queries";
 import PageShell from "@/components/PageShell";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 function getRawHtml(post: any) {
   const data = post?.customFieldsData;
@@ -24,7 +25,7 @@ function getRawHtml(post: any) {
 export default function Page() {
   const { data } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["AMOmakKBQexU11HcywQr6"],
+      categoryIds: [CATEGORY.SUMMER_UNIVERSIADE_HISTORY],
     },
   });
 

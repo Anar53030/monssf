@@ -5,11 +5,12 @@ import queries from "@/graphql/cms/queries";
 import SmartContentRenderer from "@/components/content/SmartContentRenderer";
 import PageShell from "@/components/PageShell";
 import ErxesForm from "@/components/ErxesForm";
+import { CATEGORY } from "@/graphql/cms/categories";
 
 export default function Page() {
   const { data } = useQuery(queries.cmsPostList, {
     variables: {
-      categoryIds: ["-aFqXP7a1yLhkIzLBfSAE"],
+      categoryIds: [CATEGORY.CONTACT],
     },
   });
 
