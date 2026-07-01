@@ -1215,27 +1215,34 @@ h6 {
 @media (min-width: 769px) {
   .sidebar {
     width: 52px;
+    height: 52px; /* collapsed = a compact square, not a full-height rail */
+    align-self: flex-start; /* don't stretch to the content height */
     overflow: hidden;
     position: relative;
     background: var(--color-primary);
     border-radius: var(--radius-lg);
-    transition: width var(--transition-base), background var(--transition-base);
+    transition: width var(--transition-base), height var(--transition-base),
+      background var(--transition-base);
   }
 
   .sidebar:hover {
     width: 300px;
+    height: auto; /* grow to fit the menu on hover */
     overflow: visible;
     background: transparent;
   }
 
-  /* Collapsed rail: a clean, centred menu icon on a maroon pill. */
+  /* Collapsed square: a clean, centred menu icon on a maroon tile. */
   .sidebar::before {
     content: "\2630"; /* ☰ */
     position: absolute;
-    top: var(--space-6);
+    top: 0;
     left: 0;
     width: 52px;
-    text-align: center;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 22px;
     line-height: 1;
     color: var(--color-white);

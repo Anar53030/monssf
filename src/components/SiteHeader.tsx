@@ -195,9 +195,13 @@ export default function SiteHeader() {
 
   const nav: NavEntry[] = [...baseNav, ...newCategories];
 
-  // ── Headline ticker (CMS, unchanged data logic) ────────────────
+  // ── Headline ticker (CMS) — newest news first ──────────────────
   const { data } = useQuery(queries.cmsPostList, {
-    variables: { categoryIds: [NEWS_CATEGORY_ID] },
+    variables: {
+      categoryIds: [NEWS_CATEGORY_ID],
+      sortField: "createdAt",
+      sortDirection: "desc",
+    },
   });
   const headlines: string[] = (data?.cpPostList?.posts ?? [])
     .slice(0, 8)

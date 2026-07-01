@@ -17,7 +17,11 @@ const VIDEO_CATEGORY_ID = CATEGORY.HOME_VIDEOS;
 export default function OutterWrapper({ params }: { params: { locale: string } }) {
   const t = useTranslations("Home");
   const { data, loading } = useQuery(queries.cmsPostList, {
-    variables: { categoryIds: [VIDEO_CATEGORY_ID] },
+    variables: {
+      categoryIds: [VIDEO_CATEGORY_ID],
+      sortField: "createdAt",
+      sortDirection: "desc",
+    },
   });
 
   if (loading) return null;

@@ -22,7 +22,11 @@ const FILE_BASE = "https://monssfmn.next.erxes.io/gateway/read-file?key=";
 export default function NewWrapper({ params }: { params: { locale: string } }) {
   const t = useTranslations("Home");
   const { data, loading } = useQuery(queries.cmsPostList, {
-    variables: { categoryIds: [NEWS_CATEGORY_ID] },
+    variables: {
+      categoryIds: [NEWS_CATEGORY_ID],
+      sortField: "createdAt",
+      sortDirection: "desc",
+    },
   });
 
   const posts = data?.cpPostList?.posts ?? [];

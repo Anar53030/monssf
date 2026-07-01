@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/client";
 import { queries } from "@/graphql/cms";
 import { routeForCategory, CLIENT_PORTAL_ID } from "@/graphql/cms/categories";
 import PageShell from "@/components/PageShell";
+import PostCards from "@/components/content/PostCards";
 
 /**
  * Generic category landing — works for ANY CMS category, including ones
@@ -54,18 +55,7 @@ export default function CategoryPage({
       {loading ? (
         <div>Loading...</div>
       ) : posts.length > 0 ? (
-        <ul className="cat-list">
-          {posts.map((post: any) => (
-            <li key={post._id}>
-              <a
-                href={`/${locale}/category/${id}/${post._id}`}
-                className="noajax"
-              >
-                {post.title}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <PostCards posts={posts} locale={locale} basePath={`category/${id}`} />
       ) : children.length === 0 ? (
         <p>—</p>
       ) : null}
